@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: whitesmoke;
+}
+
+.title, .main, .score{
+    width: 80%;
+    margin: 30px auto;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    background: silver;
+}
+.control{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+.score{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    background: midnightblue;
+    cursor: pointer;
+    padding: 10px;
+}
+img{
+    width: 100px;
+    height: 120px;
+}
+button:hover{
+    border: 5px solid red;
+}
+
+#result{
+    color: red;
+}
