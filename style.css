@@ -2,42 +2,38 @@
     margin: 0px;
     padding: 0px;
 }
-
-body{
-    background: whitesmoke;
-}
-
-.title, .main, .score{
+.title, .main, .score, .control{
     width: 80%;
     margin: 30px auto;
     border: 1px solid black;
-    text-align: center;
     padding: 10px;
     background: silver;
-}
-.control{
-    margin: auto;
-    width: 80%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
-.score{
-    display: flex;
-    justify-content: space-between;
-}
-button{
-    background: midnightblue;
+.control button{
+    background: white;
     cursor: pointer;
-    padding: 10px;
+    border: none;
 }
 img{
     width: 100px;
     height: 120px;
 }
-button:hover{
-    border: 5px solid red;
+img:hover{
+    box-shadow: 0px 0px 30px 5px yellow;
+    outline: none;
 }
 
 #result{
     color: red;
+}
+
+#userOption img{
+    box-shadow: 0px 0px 30px 5px blue;
+}
+
+#machineOption img{
+    box-shadow: 0px 0px 30px 5px purple;
 }

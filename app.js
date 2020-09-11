@@ -1,43 +1,68 @@
 let userNum;
 let machineNum;
+const control = document.querySelector(".control");
 const result = document.querySelector("#result");
 const machineOption = document.querySelector("#machineOption");
 const userOption = document.querySelector("#userOption");
 const userScore = document.querySelector("#userScore");
 const machineScore = document.querySelector("#machineScore");
+const main = document.querySelector(".main");
 let option = {
     0: "rock",
     1: "paper",
     2: "scissors",
 }
 
-let score = {
-    machine: 0,
-    user: 0
-}
+main.style.display = "none";
+
 function compare(){
-    machineOption.textContent = "machine choose: " + option[machineNum];
-    userOption.textContent = "you choose: " + option[userNum]
+    let userImage = document.createElement("img");
+    userImage.src = option[userNum] + ".jpg";
+    let machineImage = document.createElement("img");
+    machineImage.src = option[machineNum] + ".jpg";
+    userOption.append(userImage);
+    machineOption.append(machineImage);
+
+
     if(userNum == machineNum){
-        result.textContent = "Draw";
+        let handshake = document.createElement("img");
+        handshake.src = "handshake.gif";
+        handshake.style.width = "300px";
+        result.append(handshake);
     }
     else if(userNum - machineNum == -1 || userNum - machineNum == 2){
-        result.textContent = "LOSE";
-        score["machine"] ++;
+        let machineDance = document.createElement("img");
+        machineDance.src = "lose.gif";
+        machineDance.style.width = "300px";
+
+        result.append(machineDance);
     }
     else{
-        result.textContent = "WIN";
-        score["user"] ++;
+        let userDance = document.createElement("img");
+        userDance.src = "congratulate.gif";
+        userDance.style.width = "300px";
+        result.append(userDance);
     }
-    userScore.textContent = score["user"];
-    machineScore.textContent = score["machine"];
 }
 
-document.querySelectorAll("button").forEach(function(button) {
+function again(){
+    document.addEventListener("keydown", ()=>{
+        result.lastElementChild.remove(); 
+        main.style.display = "none";
+        control.style.display = "flex";
+    })
+}
+
+document.querySelectorAll(".option").forEach(function(button) {
     button.onclick = function() {
         userNum =  this.value;
         machineNum = Math.floor(Math.random()*3);
+        userOption.lastElementChild.remove();        
+        machineOption.lastElementChild.remove();       
         compare();
+        control.style.display = "none";
+        main.style.display = "flex"
+        again();
     }
 });
 
